@@ -2,38 +2,49 @@
 
 namespace App\Client;
 
+use App\Client\CrawlerClient\Common\CrawlingRequestResponseDto;
+use App\Client\Enums\HttpMethod;
 use GuzzleHttp\Client;
-use phpDocumentor\Reflection\Types\Mixed_;
+use GuzzleHttp\Exception\GuzzleException;
 
 /**
  * @property Client $client
  */
 abstract class ClientAbstract
 {
-    protected $url;
+    private Client $client;
 
-    public function __get(string $name)
+    public function __construct(string $host)
     {
-        switch ($name) {
-            case 'client':
-                $this->client = new Client();
-
-                return $this->client;
-            default:
-                return null;
-        }
+        $this->client = new Client([
+            'base_uri' => $host,
+            'verify' => false,
+        ]);
     }
 
-    public abstract function run();
-
-    protected function call(array $params = []): string
+    /**
+     * @param HttpMethod $method
+     * @param string $path
+     * @param object|array|null $params
+     * @return object|null
+     * @throws GuzzleException
+     */
+    protected function call(HttpMethod $method, string $path, object|array $params = null): ?object
     {
         $options = [];
-        $options['form_params'] = $params;
 
-        $response = $this->client->get($this->url, $options);
-        $body = $response->getBody();
+        if ($params) {
+            $options['json'] = is_array($params) ?: objectToArray($params);
+        }
 
-        return $body->getContents();
+        $response = $this->client->request($method->value, $path, options: $options);
+
+        $content = $response->getBody()?->getContents();
+
+        if (!$content) {
+            return null;
+        }
+
+        return DtoMapper(CrawlingRequestResponseDto::class, json_decode($content, JSON_OBJECT_AS_ARRAY));
     }
 }
