@@ -2,8 +2,11 @@
 
 namespace App\Console;
 
+use App\Console\Commands\RequestAwsRecentCrawling;
+use App\Console\Commands\RequestNaverLandCrawling;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\App;
 
 class Kernel extends ConsoleKernel
 {
@@ -12,7 +15,13 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        if (App::isLocal()) {
+            $schedule->command(RequestNaverLandCrawling::class)->everyMinute();
+            $schedule->command(RequestAwsRecentCrawling::class)->everyMinute();
+        } else {
+            $schedule->command(RequestNaverLandCrawling::class)->hourly();
+            $schedule->command(RequestAwsRecentCrawling::class)->hourly();
+        }
     }
 
     /**
@@ -20,7 +29,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands(): void
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
 
         require base_path('routes/console.php');
     }
