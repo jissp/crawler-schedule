@@ -1,18 +1,24 @@
 <?php
 
-namespace App\Interfaces\NaverLand;
+namespace App\Client\CrawlerClient\NaverLandClient\Dto;
+
+use App\Client\CrawlerClient\NaverLandClient\Enums\RealEstate;
+use App\Client\CrawlerClient\NaverLandClient\Enums\TradeType;
 
 class CrawlingRequestDto
 {
-    public string $rletTpCd;
-    public string $tradTpCd;
+    /** @var RealEstate[] */
+    public array $rletTpCd;
+
+    /** @var TradeType[] */
+    public array $tradTpCd;
     public int $z;
-    public int $lat;
-    public int $lon;
-    public int $btm;
-    public int $lft;
-    public int $top;
-    public int $rgt;
+    public float $lat;
+    public float $lon;
+    public float $btm;
+    public float $lft;
+    public float $top;
+    public float $rgt;
     /** 매매가(최소) */
     public int $dprcMin;
     /** 매매가(최대) */
@@ -30,14 +36,9 @@ class CrawlingRequestDto
     /** 면적(최대) */
     public int $spcMax;
     public string $showR0;
-//        public int $totCnt;
-    public string $tag;
+
+    public array $tag;
     public string $highSpc;
     public int $page;
     public int $maxPage;
-
-    public function bind($data)
-    {
-
-    }
 }
