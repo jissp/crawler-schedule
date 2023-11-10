@@ -56,7 +56,7 @@ class RequestNaverLandCrawling extends Command
             /** 수지, 광교 지역 */
             $this->buildRequestDto(z: 14, lat: 37.3058028, lon: 127.0758337, btm: 37.2737087, lft: 127.0186275, top: 37.3378832, rgt: 127.1330398),
             /** 단독주택 */
-            DtoMapper(CrawlingRequestDto::class, ["rletTpCd" => [RealEstate::아파트, RealEstate::오피스텔, RealEstate::단독다가구, RealEstate::전원주택], "tradTpCd" => [TradeType::매매, TradeType::전세, TradeType::월세,], 'z' => 12, 'lat' => 37.5385348, 'lon' => 127.0896417, 'btm' => 37.4667662, 'lft' => 126.7600518, 'top' => 37.6102343, 'rgt' => 127.4192315, "dprcMin" => 10000, "dprcMax" => 38000, "wprcMin" => 10000, "wprcMax" => 20000, "rprcMin" => 70, "rprcMax" => 120, "spcMin" => 45, "spcMax" => 9999, "tag" => [ParkingTag::PARKINGYN,], "page" => 1, "maxPage" => 999])
+            DtoMapper(CrawlingRequestDto::class, ['rletTpCd' => [RealEstate::아파트, RealEstate::오피스텔, RealEstate::단독다가구, RealEstate::전원주택], 'tradTpCd' => [TradeType::매매, TradeType::전세, TradeType::월세,], 'z' => 12, 'lat' => 37.5385348, 'lon' => 127.0896417, 'btm' => 37.4667662, 'lft' => 126.7600518, 'top' => 37.6102343, 'rgt' => 127.4192315, 'dprcMin' => 10000, 'dprcMax' => 38000, 'wprcMin' => 10000, 'wprcMax' => 20000, 'rprcMin' => 70, 'rprcMax' => 120, 'spcMin' => 45, 'spcMax' => 9999, 'tag' => [ParkingTag::PARKINGYN,], 'page' => 1, 'maxPage' => 999])
         ];
 
         /** @var NaverLandClient $client */
@@ -81,34 +81,34 @@ class RequestNaverLandCrawling extends Command
     private function buildRequestDto(int $z, float $lat, float $lon, float $btm, float $lft, float $top, float $rgt): ?object
     {
         return DtoMapper(CrawlingRequestDto::class, [
-            "rletTpCd" => [
+            'rletTpCd' => [
                 RealEstate::아파트, RealEstate::오피스텔, RealEstate::단독다가구, RealEstate::전원주택
             ],
-            "tradTpCd" => [
+            'tradTpCd' => [
                 TradeType::매매,
                 TradeType::전세,
                 TradeType::월세,
             ],
-            "z" => $z,
-            "lat" => $lat,
-            "lon" => $lon,
-            "btm" => $btm,
-            "lft" => $lft,
-            "top" => $top,
-            "rgt" => $rgt,
-            "dprcMin" => 10000,
-            "dprcMax" => 38000,
-            "wprcMin" => 10000,
-            "wprcMax" => 20000,
-            "rprcMin" => 70,
-            "rprcMax" => 120,
-            "spcMin" => 45,
-            "spcMax" => 9999,
-            "tag" => [
+            'z' => $z,
+            'lat' => $lat,
+            'lon' => $lon,
+            'btm' => $btm,
+            'lft' => $lft,
+            'top' => $top,
+            'rgt' => $rgt,
+            'dprcMin' => 10000,
+            'dprcMax' => 38000,
+            'wprcMin' => 10000,
+            'wprcMax' => 20000,
+            'rprcMin' => 70,
+            'rprcMax' => 120,
+            'spcMin' => 45,
+            'spcMax' => 9999,
+            'tag' => [
                 ParkingTag::PARKINGYN,
             ],
-            "page" => 1,
-            "maxPage" => 999
+            'page' => 1,
+            'maxPage' => 999
         ]);
     }
 }
