@@ -98,7 +98,7 @@ class RequestNaverLandCrawling extends Command
             'rgt' => $rgt,
             'dprcMin' => 10000,
             'dprcMax' => 38000,
-            'wprcMin' => 10000,
+            'wprcMin' => 1000,
             'wprcMax' => 20000,
             'rprcMin' => 70,
             'rprcMax' => 120,
