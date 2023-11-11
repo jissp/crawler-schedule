@@ -1,0 +1,7 @@
+vendor
+tests
+storage/app/*
+storage/framework/*
+storage/logs/*
+.git
+composer.lock
