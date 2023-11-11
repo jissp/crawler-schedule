@@ -19,8 +19,8 @@ class Kernel extends ConsoleKernel
             $schedule->command(RequestNaverLandCrawling::class)->everyMinute();
             $schedule->command(RequestAwsRecentCrawling::class)->everyMinute();
         } else {
-            $schedule->command(RequestNaverLandCrawling::class)->hourly();
-            $schedule->command(RequestAwsRecentCrawling::class)->hourly();
+            $schedule->command(RequestNaverLandCrawling::class)->everyThreeHours();
+            $schedule->command(RequestAwsRecentCrawling::class)->everyThreeHours();
         }
     }
 
