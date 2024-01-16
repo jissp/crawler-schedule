@@ -99,10 +99,10 @@ class RequestNaverLandCrawling extends Command
             'dprcMin' => 10000,
             'dprcMax' => 38000,
             'wprcMin' => 1000,
-            'wprcMax' => 20000,
-            'rprcMin' => 70,
+            'wprcMax' => 30000,
+            'rprcMin' => 60,
             'rprcMax' => 120,
-            'spcMin' => 45,
+            'spcMin' => 40,
             'spcMax' => 9999,
             'tag' => [
                 ParkingTag::PARKINGYN,
