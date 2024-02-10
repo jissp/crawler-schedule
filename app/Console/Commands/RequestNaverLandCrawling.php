@@ -56,7 +56,10 @@ class RequestNaverLandCrawling extends Command
             /** 수지, 광교 지역 */
             $this->buildRequestDto(z: 14, lat: 37.3058028, lon: 127.0758337, btm: 37.2737087, lft: 127.0186275, top: 37.3378832, rgt: 127.1330398),
             /** 단독주택 */
-            DtoMapper(CrawlingRequestDto::class, ['rletTpCd' => [RealEstate::아파트, RealEstate::오피스텔, RealEstate::단독다가구, RealEstate::전원주택], 'tradTpCd' => [TradeType::매매, TradeType::전세, TradeType::월세,], 'z' => 12, 'lat' => 37.5385348, 'lon' => 127.0896417, 'btm' => 37.4667662, 'lft' => 126.7600518, 'top' => 37.6102343, 'rgt' => 127.4192315, 'dprcMin' => 10000, 'dprcMax' => 38000, 'wprcMin' => 10000, 'wprcMax' => 20000, 'rprcMin' => 70, 'rprcMax' => 120, 'spcMin' => 45, 'spcMax' => 9999, 'tag' => [ParkingTag::PARKINGYN,], 'page' => 1, 'maxPage' => 999])
+            DtoMapper(CrawlingRequestDto::class, ['rletTpCd' => [RealEstate::아파트, RealEstate::오피스텔, RealEstate::단독다가구, RealEstate::전원주택], 'tradTpCd' => [TradeType::매매, TradeType::전세, TradeType::월세,], 'z' => 12, 'lat' => 37.5385348, 'lon' => 127.0896417, 'btm' => 37.4667662, 'lft' => 126.7600518, 'top' => 37.6102343, 'rgt' => 127.4192315, 'dprcMin' => 10000, 'dprcMax' => 38000, 'wprcMin' => 10000, 'wprcMax' => 20000, 'rprcMin' => 70, 'rprcMax' => 120, 'spcMin' => 45, 'spcMax' => 9999, 'tag' => [ParkingTag::PARKINGYN,], 'page' => 1, 'maxPage' => 999]),
+            /** 빌라 */
+            DtoMapper(CrawlingRequestDto::class, ['rletTpCd' => [RealEstate::빌라], 'tradTpCd' => [TradeType::월세], 'z' => 12, 'lat' => 37.5089517, 'lon' => 126.9837205, 'btm' => 37.4804183, 'lft' => 126.8738572, 'top' => 37.5374742, 'rgt' => 127.0935838, 'wprcMin' => 1000, 'wprcMax' => 15000, 'rprcMin' => 50, 'rprcMax' => 100, 'spcMin' => 45, 'spcMax' => 9999, 'tag' => [ParkingTag::PARKINGYN,], 'page' => 1, 'maxPage' => 999]),
+            DtoMapper(CrawlingRequestDto::class, ['rletTpCd' => [RealEstate::빌라], 'tradTpCd' => [TradeType::월세], 'z' => 12, 'lat' => 37.5441438, 'lon' => 127.0579641, 'btm' => 37.5133091, 'lft' => 126.9481008, 'top' => 37.5749658, 'rgt' => 127.1678274, 'wprcMin' => 1000, 'wprcMax' => 15000, 'rprcMin' => 50, 'rprcMax' => 100, 'spcMin' => 45, 'spcMax' => 9999, 'tag' => [ParkingTag::PARKINGYN,], 'page' => 1, 'maxPage' => 999])
         ];
 
         /** @var NaverLandClient $client */
