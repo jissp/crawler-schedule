@@ -42,11 +42,10 @@ class RequestNaverLandCrawling extends Command
             // 아파트, 오피스텔 관련
             /** @var CrawlingRequestDto $dto */
             array_map(function (CrawlingRequestDto $dto) use ($client, $parkingTag) {
-                $_dto = clone $dto;
-                $_dto->tag = [$parkingTag];
+                $dto->tag = [$parkingTag];
 
                 /** @var CrawlingRequestResponseDto $response */
-                $client->collect($_dto);
+                $client->collect($dto);
             }, [
                 /** 강남 */
                 $this->buildRequestDto(z: 13, lat: 37.5030847, lon: 126.996848, btm: 37.4390515, lft: 126.832053, top: 37.567063, rgt: 127.1616429),
@@ -74,11 +73,10 @@ class RequestNaverLandCrawling extends Command
 
             // 빌라 관련
             array_map(function (CrawlingRequestDto $dto) use ($client, $parkingTag) {
-                $_dto = clone $dto;
-                $_dto->tag = [$parkingTag, CompletionTag::COMPLETION4UNDER];
+                $dto->tag = [$parkingTag, CompletionTag::COMPLETION4UNDER];
 
                 /** @var CrawlingRequestResponseDto $response */
-                $client->collect($_dto);
+                $client->collect($dto);
             }, [
                 DtoMapper(CrawlingRequestDto::class, ['rletTpCd' => [RealEstate::빌라], 'tradTpCd' => [TradeType::월세], 'z' => 12, 'lat' => 37.5089517, 'lon' => 126.9837205, 'btm' => 37.4804183, 'lft' => 126.8738572, 'top' => 37.5374742, 'rgt' => 127.0935838, 'wprcMin' => 1000, 'wprcMax' => 18000, 'rprcMin' => 50, 'rprcMax' => 150, 'spcMin' => 44, 'spcMax' => 9999, 'page' => 1, 'maxPage' => 999]),
                 DtoMapper(CrawlingRequestDto::class, ['rletTpCd' => [RealEstate::빌라], 'tradTpCd' => [TradeType::월세], 'z' => 12, 'lat' => 37.5441438, 'lon' => 127.0579641, 'btm' => 37.5133091, 'lft' => 126.9481008, 'top' => 37.5749658, 'rgt' => 127.1678274, 'wprcMin' => 1000, 'wprcMax' => 18000, 'rprcMin' => 50, 'rprcMax' => 150, 'spcMin' => 44, 'spcMax' => 9999, 'page' => 1, 'maxPage' => 999]),
