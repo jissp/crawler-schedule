@@ -57,9 +57,9 @@ class RequestNaverLandCrawling extends Command
 //            /** 강북 */
 //            $this->buildRequestDto(z: 14, lat: 37.5490321, lon: 126.9935435, btm: 37.5170421, lft: 126.911146, top: 37.5810084, rgt: 127.075941),
 //            /** 강서, 마포, 영등포, 선유도, 당산, 여의도 지역 */
-//            $this->buildRequestDto(z: 14, lat: 37.5470586, lon: 126.8909544, btm: 37.5150678, lft: 126.8337482, top: 37.5790358, rgt: 126.9481605),
+            $this->buildRequestDto(z: 14, lat: 37.5470586, lon: 126.8909544, btm: 37.5150678, lft: 126.8337482, top: 37.5790358, rgt: 126.9481605),
 //            /** 역곡/부천 지역 */
-//            $this->buildRequestDto(z: 14, lat: 37.5053997, lon: 126.8732089, btm: 37.473391, lft: 126.7908114, top: 37.5373948, rgt: 126.9556063),
+            $this->buildRequestDto(z: 14, lat: 37.5053997, lon: 126.8732089, btm: 37.473391, lft: 126.7908114, top: 37.5373948, rgt: 126.9556063),
 //            /** 독산/광명 지역 */
             $this->buildRequestDto(z: 14, lat: 37.4620825, lon: 126.9333762, btm: 37.4300552, lft: 126.8509787, top: 37.4940961, rgt: 127.0157736),
 //            /** 평촌, 과천 지역 */
